@@ -22,9 +22,9 @@ MyString::MyString(const char* copyThis)
 MyString::MyString(const MyString & other)
 {
     cout << "copy constructor is used" << endl;
-    int length = strlen(other.ptr); //copy length
-    ptr = new char[length + 1];
-    strcpy_s(ptr, length+ 1, other.ptr); //will this work???    
+    int length = strlen(other.ptr)+1; //copy length
+    ptr = new char[length];
+    strcpy_s(ptr, length, other.ptr); //will this work???    
 }
 
 //destructor will delete all allocated memory after the program is finished running
@@ -39,9 +39,10 @@ MyString MyString::operator= (const MyString &right)
 {
     if (this != &right)
     {
+        int length = strlen(right.ptr) + 1;
         delete[] ptr;// delete memory currently being pointed to
-        ptr = new char[strlen(right.ptr) + 1];
-        strcpy_s(ptr, strlen(right.ptr) + 1, right.ptr);
+        ptr = new char[length];
+        strcpy_s(ptr, length, right.ptr);
     }
     return *this; //"this" is a keyword that will return a mystring in this context
 }
@@ -63,35 +64,17 @@ MyString MyString::operator+ (const MyString &right)
 
 ostream &operator<< (ostream &strm, const MyString &obj)
 {
-    for (int i = 0; i < strlen(obj.ptr); i++)
-    {
-        strm << obj.ptr[i]; //what i want to do here is display the char that the pointer is pointing to at that index
-    }
+    strm << obj.c_str();
+    
     return strm;
 }
 
 bool MyString::operator== (const MyString &right)
 {
-    
-    //dummy code to ty to find why strcmp is unidentified
-    //int var = strcmp_s("abc", 3, "abc");  <<<<<this DOES NOT WORK
-    //int temp = strcmp("abc", "abc"); <<<<<<this DOES WORK
-
-    bool status;
-    int size = strlen(ptr+1);
-    int check = 0;
-    if (check == strcmp(ptr , right.ptr))
-    {
-        status = true;
-    }
-    else
-    {
-        status = false;
-    }
-    return status;
+    return (0 == strcmp(ptr, right.ptr));
 }
 
-const char* MyString::c_str()
+const char* MyString::c_str() const
 {
-    return ptr; //WHY DOES THIS WORK?
+    return ptr; 
 }

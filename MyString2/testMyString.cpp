@@ -24,7 +24,7 @@ int main()
     MyString S3("banana");
     MyString S4("apple");
     cout << "assigning S3: " << S3 << " to S4: " << S4 << endl;
-    S3 = S4; 
+    S4 = S3; 
     cout << "after assignment:" << endl;
     cout << "S3: " << S3 << endl;
     cout << "S4: " << S4 << endl << endl;

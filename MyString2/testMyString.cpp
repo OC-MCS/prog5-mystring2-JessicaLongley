@@ -14,11 +14,11 @@ int main()
 
     //constructor with (char*) parameter
     MyString S1("abc");
-    cout << "After calling (char*) constructor, S: " << S1 << endl << endl;
+    cout << "After calling constructor(char*), S1: " << S1 << endl << endl;
 
     //constructor with (MyString parameter)
     MyString S2(S1);
-    cout << "After calling (MyString) constructor, S1: " << S1 << " and S2: " << S2 << endl << endl;
+    cout << "After calling constructor(MyString) , S1: " << S1 << " and S2: " << S2 << endl << endl;
 
     //overloaded operator and copy constructor working in beautifl harmony
     MyString S3("banana");
@@ -29,10 +29,6 @@ int main()
     cout << "S3: " << S3 << endl;
     cout << "S4: " << S4 << endl << endl;
 
-    //assignment with literal array of characters
-    S3 = "bob";
-    cout << "Assignment to literal array of characters S3: " << S3 << endl << endl;
-
     //pass a mystring by value to a function
     boringFunction(S3);
 
@@ -41,25 +37,57 @@ int main()
     MyString returned = returningFunction(c);
     cout << "A MyString returned from a function: " << returned << endl << endl;
 
+    //assignment with literal array of characters
+    cout << "Redefine S2 to hold 123 ";
+    S2 = "123";
+    cout << "After statement, S2 = " << S2 << endl << endl;
+
+    cout << "Change values in S1 and S2" << endl;
+    S1 = "hello ";
+    S2 = "world!";
+    //overloaded + operator
+    cout << "Adding with + operator << endl <<  S1: " << S1 << " + S2: " << S2 << " = S3 " << endl;
     S3 = S1 + S2;
-    cout << S3;
-    ////overloaded + operator
-    //cout << "Adding with + operator << endl <<  S1: " << S1 << "+ S2: " << S2 << endl;
-    //cout << "= " << S1 + S2 << endl;
+    cout << "S3 = " << S3 << endl<< endl;
 
-    //cout << "assigning " << "S3: " << S3 << " to " << "S2: " << S2 << " to " << "S1: " << S1 << endl;
-    //S1 = S2 = S3
-    //cout << "after assignment: " << endl;
-    //cout << "S1: " << S1 << endl;
-    //cout << "S2: " << S2 << endl;
-    //cout << "S3: " << S3 << endl;
+    cout << "(Resetting values of S1, S2, S3 " << endl;
+    S1 = "dog";
+    S2 = "cat";
+    S3 = "fish";
+
+    cout << "assigning " << "S3: " << S3 << " to " << "S2: " << S2 << " to " << "S1: " << S1 << endl;
+    cout << "S1 = S2 = S3" << endl;
+    S1 = S2 = S3;
+    cout << "after assignment: " << endl;
+    cout << "S1: " << S1 << endl;
+    cout << "S2: " << S2 << endl;
+    cout << "S3: " << S3 << endl << endl;
 
 
-    //cout << "assigning S1: " << S1 << " to " << "S1: " << S1 << endl;
-    //S1 = S1;
-    //cout << "afterassignment: " << endl;
-    //cout << "S1: " << S1 << endl;
+    cout << "assigning S1: " << S1 << " to " << "S1: " << S1 << endl;
+    cout << "S1 = S1" << endl;
+    S1 = S1;
+    cout << "after assignment: " << endl;
+    cout << "S1: " << S1 << endl << endl;
 
+    //check operloaded == operator
+    cout << "content of S1: " << S1 << endl;
+    cout << "contents of S2: " << S2 << endl;
+    cout << "Are S1 and S2 equal? " << endl;
+    if (S1 == S2)
+    {
+        cout << "yes!" << endl;
+    }
+    else
+        cout << "no!" << endl << endl;
+
+    cout << "Are S1 and 'fish' equal? " << endl;
+    if (S1 == "fish")
+    {
+        cout << "yes!" << endl;
+    }
+    else
+        cout << "no!" << endl;
 
 
 
@@ -70,7 +98,7 @@ int main()
 void boringFunction (MyString s)
 {
     cout << "copy of MyString passed into function: " << s << endl;
-    cout << "No shallow copies here!" << endl << endl;
+    cout << "(That means success)" << endl << endl;
 }
 
 //this function returns a MyString, callig the copy constructor

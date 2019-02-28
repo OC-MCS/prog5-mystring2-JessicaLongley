@@ -4,50 +4,65 @@
 #include "MyString.h"
 
 using namespace std;
-void boringFunction(MyString s);
-MyString returningFunction(char a[]);
+void coolFunction(MyString s);
+MyString returningFunction();
 
 int main()
 {
-    //defalt constructor
+    //Ways to create instances of MyStrings
+    cout << "The defalt constructor initializes the MyString(S) pointer to nullptr." << endl << endl;
     MyString S();
 
-    //constructor with (char*) parameter
+    cout << "You can use a literal string (abc) to initialize MyString (S1)." << endl;
     MyString S1("abc");
-    cout << "After calling constructor(char*), S1: " << S1 << endl << endl;
+    cout << "After initalizing:" << endl;
+    cout << "S1: " << S1 << endl << endl;
 
-    //constructor with (MyString parameter)
+    cout << "Initialize a MyString (S2) with a MyString (S1) as the parameter." << endl;
     MyString S2(S1);
-    cout << "After calling constructor(MyString) , S1: " << S1 << " and S2: " << S2 << endl << endl;
+    cout << "After initalizing:" << endl;
+    cout << "S1: " << S1 << "    S2 : " << S2 << endl << endl;
 
-    //overloaded operator and copy constructor working in beautifl harmony
+    cout << "Initialize a MyString (S5) by passing a variable reference to an array of chars." << endl;
+    char name[] = "Shandy";
+    MyString S5(name);
+    cout << "After initalizing:" << endl;
+    cout << "S5: " << S5 << endl << endl;
+
+
+    //overloaded operator and copy constructor working in beautiful harmony
     MyString S3("banana");
     MyString S4("apple");
-    cout << "assigning S3: " << S3 << " to S4: " << S4 << endl;
+    cout << "Assign one MyString (S3: " << S3 << ") to another MyString (S4: " << S4 << ")." << endl;
     S4 = S3; 
-    cout << "after assignment:" << endl;
+    cout << "After assignment:" << endl;
     cout << "S3: " << S3 << endl;
     cout << "S4: " << S4 << endl << endl;
 
-    //pass a mystring by value to a function
-    boringFunction(S3);
+    
+    cout << "Pass a MyString by value to a function such as (coolFunction) that makes a deep copy and displays value passed." << endl;
+    coolFunction(S3);
 
-    //return a mystring from a function
-    char c[] = "back in main";
-    MyString returned = returningFunction(c);
-    cout << "A MyString returned from a function: " << returned << endl << endl;
+
+    cout << "Return a MyString from a function such as (ReturningFunction)."<< endl;
+    MyString S6 = returningFunction();
+    cout << "MyString S6 returned from a function: " << S6 << endl;
+    cout << "MyString S6 was initialized inside this function." << endl << endl;
 
     //assignment with literal array of characters
-    cout << "Redefine S2 to hold 123 ";
-    S2 = "123";
-    cout << "After statement, S2 = " << S2 << endl << endl;
-
-    cout << "Change values in S1 and S2" << endl;
+    cout << "Redefine MyString (S1) to hold literal c-string (hello) ";
+    cout << "Redefine MyString (S2) to hold literal c-string (world) ";
     S1 = "hello ";
     S2 = "world!";
+    cout << "After change: " << endl;
+    cout << "S1: " << S1 << endl;
+    cout << "S2: " << S2 << endl;
+
     //overloaded + operator
-    cout << "Adding with + operator << endl <<  S1: " << S1 << " + S2: " << S2 << " = S3 " << endl;
+    cout << "Add MyString to MyString with + operator. "<< endl;
+    cout << "S1: (" << S1 << ") + S2: (" << S2 << ") = S3 " << endl;
     S3 = S1 + S2;
+    cout << "After using + operator: " << endl;
     cout << "S3 = " << S3 << endl<< endl;
 
     cout << "(Resetting values of S1, S2, S3 " << endl;
@@ -95,16 +110,15 @@ int main()
 }
 
 //there is a MyString that is passed by value to this function
-void boringFunction (MyString s)
+void coolFunction (MyString s)
 {
-    cout << "copy of MyString passed into function: " << s << endl;
-    cout << "(That means success)" << endl << endl;
+    cout << "Deep copy of MyString passed into function: " << s << endl << endl;
 }
 
 //this function returns a MyString, callig the copy constructor
-MyString returningFunction(char a[])
+MyString returningFunction()
 {
-    MyString temp(a);
+    MyString temp("Hello");
 
     return temp;
 }

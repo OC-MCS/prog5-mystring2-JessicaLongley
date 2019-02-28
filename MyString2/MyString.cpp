@@ -21,7 +21,7 @@ MyString::MyString(const char* copyThis)
 //copy constructor
 MyString::MyString(const MyString & other)
 {
-    cout << "copy constructor is used" << endl;
+    //cout << "copy constructor is used" << endl;
     int length = strlen(other.ptr)+1; //copy length
     ptr = new char[length];
     strcpy_s(ptr, length, other.ptr); //will this work???    

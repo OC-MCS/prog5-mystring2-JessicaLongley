@@ -4,19 +4,19 @@
 
 using namespace std;
 
-//************************************************************
-//Defalt constructor.                                        *
-//Assigns MyString's ptr to  nullptr if no chars are passed. *
-//************************************************************
+//************************************************************************
+//Defalt constructor.                                                    *
+//Assigns MyString's ptr to  nullptr if no chars are used to initialize. *
+//************************************************************************
 MyString::MyString()
 {
     ptr = nullptr;
 }
 
-//******************************************************
-//Construtor that takes char* as a parameter           *   
-//to inialize the MyString                             *
-//******************************************************
+//*********************************************
+//Construtor that takes char* as a parameter  *   
+//to inialize the MyString                    *
+//*********************************************
 MyString::MyString(const char* copyThis)
 {
         int length = strlen(copyThis);//length is how big to make the copy
@@ -24,9 +24,9 @@ MyString::MyString(const char* copyThis)
         strcpy_s(ptr, length + 1, copyThis);//Copying
 }
 
-//*******************************************************
-//Copy constructor. Makes DEEP copies.                  *
-//*******************************************************
+//***************************************
+//Copy constructor. Makes DEEP copies.  *
+//***************************************
 MyString::MyString(const MyString & other)
 {
     cout << "copy constructor is used" << endl;
@@ -58,6 +58,7 @@ MyString MyString::operator= (const MyString &right)
         ptr = new char[length];//make enough space for the new data
         strcpy_s(ptr, length, right.ptr);//copy data over
     }
+
     return *this; //"this" is a keyword that will return a MyString
 }
 

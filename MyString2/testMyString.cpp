@@ -1,4 +1,12 @@
-#include <iostream>
+//=============================
+//Jessica Longley
+//1 MAR 2019
+//Programming Assignment #5
+//Description: MyString class
+//=============================
+
+//Future improvement to this code:
+//Create more functions to deal with empty MyStrings.#include <iostream>
 #include <cstring>
 #include "MyString.h"
 
@@ -72,7 +80,7 @@ int main()
     cout << "assigning " << "S3: (" << S3 << ") to " << "S2: (" << S2 << ") to " << "S1: (" << S1 << ")" << endl;
     cout << "S1 = S2 = S3" << endl;
     S1 = S2 = S3;
-    cout << "after assignment: " << endl;
+    cout << "After assignment: " << endl;
     cout << "S1: " << S1 << endl;
     cout << "S2: " << S2 << endl;
     cout << "S3: " << S3 << endl << endl;
@@ -81,7 +89,7 @@ int main()
     cout << "assigning S1: (" << S1 << ") to " << "S1: (" << S1 << ")" << endl;
     cout << "S1 = S1" << endl;
     S1 = S1;
-    cout << "after assignment: " << endl;
+    cout << "After assignment: " << endl;
     cout << "S1: " << S1 << endl << endl;
 
     //operloaded == operator

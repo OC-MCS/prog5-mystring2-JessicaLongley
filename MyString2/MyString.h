@@ -19,4 +19,4 @@ public:
     bool operator== (const MyString &right); //overloaded == operator
     const char* c_str() const; //returns internal c-string pointer as a const pointer
 };
-ostream &operator << (ostream & strm, const MyString & obj) ; //friendly overloaded >> operator
+ostream &operator << (ostream & strm, const MyString & obj) ; //overloaded >> operator

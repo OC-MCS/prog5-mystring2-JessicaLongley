@@ -1,4 +1,3 @@
-// main goes in this file
 #include <iostream>
 #include <cstring>
 #include "MyString.h"
@@ -24,7 +23,7 @@ int main()
     cout << "S1: " << S1 << "    S2 : " << S2 << endl << endl;
 
     cout << "Initialize a MyString (S5) by passing a variable reference to an array of chars." << endl;
-    char name[] = "Shandy";
+    char name[] = "andy";
     MyString S5(name);
     cout << "After initalizing:" << endl;
     cout << "S5: " << S5 << endl << endl;
@@ -42,12 +41,12 @@ int main()
     
     cout << "Pass a MyString by value to a function such as (coolFunction) that makes a deep copy and displays value passed." << endl;
     coolFunction(S3);
-
+    cout << "Function has been executed." << endl << endl;
 
     cout << "Return a MyString from a function such as (ReturningFunction)."<< endl;
     MyString S6 = returningFunction();
-    cout << "MyString S6 returned from a function: " << S6 << endl;
-    cout << "MyString S6 was initialized inside this function." << endl << endl;
+    cout << "MyString (S6) returned from a function: " << S6 << endl;
+    cout << "MyString (S6) was initialized inside this function." << endl << endl;
 
     //assignment with literal array of characters
     cout << "Redefine MyString (S1) to hold literal c-string (hello) ";
@@ -65,12 +64,12 @@ int main()
     cout << "After using + operator: " << endl;
     cout << "S3 = " << S3 << endl<< endl;
 
-    cout << "(Resetting values of S1, S2, S3 " << endl;
+    cout << "(Resetting values of S1, S2, S3)." << endl;
     S1 = "dog";
     S2 = "cat";
     S3 = "fish";
 
-    cout << "assigning " << "S3: " << S3 << " to " << "S2: " << S2 << " to " << "S1: " << S1 << endl;
+    cout << "assigning " << "S3: (" << S3 << ") to " << "S2: (" << S2 << ") to " << "S1: (" << S1 << ")" << endl;
     cout << "S1 = S2 = S3" << endl;
     S1 = S2 = S3;
     cout << "after assignment: " << endl;
@@ -79,19 +78,25 @@ int main()
     cout << "S3: " << S3 << endl << endl;
 
 
-    cout << "assigning S1: " << S1 << " to " << "S1: " << S1 << endl;
+    cout << "assigning S1: (" << S1 << ") to " << "S1: (" << S1 << ")" << endl;
     cout << "S1 = S1" << endl;
     S1 = S1;
     cout << "after assignment: " << endl;
     cout << "S1: " << S1 << endl << endl;
 
-    //check operloaded == operator
-    cout << "content of S1: " << S1 << endl;
-    cout << "contents of S2: " << S2 << endl;
-    cout << "Are S1 and S2 equal? " << endl;
+    //operloaded == operator
+    cout << "Are S1 (fish) and S2 (fish) equal? " << endl;
     if (S1 == S2)
     {
-        cout << "yes!" << endl;
+        cout << "yes!" << endl << endl;
+    }
+    else
+        cout << "no!" << endl << endl;
+
+    cout << "Are S1 (fish) and S6 (Hello) equal? " << endl;
+    if (S1 == S6)
+    {
+        cout << "yes!" << endl << endl;
     }
     else
         cout << "no!" << endl << endl;
@@ -99,12 +104,10 @@ int main()
     cout << "Are S1 and 'fish' equal? " << endl;
     if (S1 == "fish")
     {
-        cout << "yes!" << endl;
+        cout << "yes!" << endl << endl;
     }
     else
-        cout << "no!" << endl;
-
-
+        cout << "no!" << endl << endl;
 
     return 0;
 }

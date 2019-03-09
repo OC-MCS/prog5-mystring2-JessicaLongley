@@ -44,7 +44,7 @@ MyString::~MyString()
     cout << "destructor is used" << endl;
     delete[] ptr;//destruct dynamically allocated memory
 }
-
+ 
 //********************************************************
 // Overloaded = operator. Gives user the ability to      *
 // assign one MyString to another.                       *
